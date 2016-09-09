@@ -1,6 +1,9 @@
 Experiment a way to bypass the problem which cgo calls create too many threads
 
-benchmark with go 1.7
+benchmark with go 1.7, cpu=4
+
+5000 goroutine
+----------------
 
 $ go test -run TestSync
 sync
@@ -14,3 +17,17 @@ async
 179962.71 ops
 PASS
 
+
+20000 goroutine
+---------------
+$ go test -run TestSync
+sync
+73.91 seconds
+27061.61 ops
+PASS
+
+$go test -run TestAsync
+async
+14.13 seconds
+141545.33 ops
+PASS

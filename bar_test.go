@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	RUN_CONCURRENT = 5000
+	RUN_CONCURRENT = 20000
 	RUN_COUNT = 100
 )
 
