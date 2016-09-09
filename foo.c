@@ -20,7 +20,7 @@ foo_init(foo_t *foo) {
   int i, ret;
   ret = pipe2(foo->fds, O_DIRECT);
   if (ret < 0) {
-      printf("create pipe error: %s\n", sys_errlist[errno]);
+      printf("create pipe error: %s\n", strerror(errno));
       exit(1);
   }
   for (i=0; i<100; i++) {
@@ -57,7 +57,7 @@ worker(foo_t *foo) {
     //}
     pthread_mutex_unlock(&foo->mutex);
     if (errno != 0) {
-      printf("read from pipe error: %s\n", sys_errlist[errno]);
+      printf("read from pipe error: %s\n", strerror(errno));
       return;
     }
     if (res == 0) {
